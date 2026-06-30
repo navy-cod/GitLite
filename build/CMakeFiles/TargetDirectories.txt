@@ -1,0 +1,3 @@
+/home/votex/Projects/GitLite/build/CMakeFiles/glite.dir
+/home/votex/Projects/GitLite/build/CMakeFiles/edit_cache.dir
+/home/votex/Projects/GitLite/build/CMakeFiles/rebuild_cache.dir

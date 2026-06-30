@@ -1,0 +1,1 @@
+/usr/bin/cc  -Wall -Wextra -g -pedantic  -Wl,--dependency-file=CMakeFiles/glite.dir/link.d CMakeFiles/glite.dir/src/main.c.o -o glite
