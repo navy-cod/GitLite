@@ -3,6 +3,10 @@ glite: \
   /usr/lib/gcc/x86_64-pc-linux-gnu/16/../../../../lib/crti.o \
   /usr/lib/gcc/x86_64-pc-linux-gnu/16/crtbeginS.o \
   CMakeFiles/glite.dir/src/main.c.o \
+  CMakeFiles/glite.dir/src/dynarray.c.o \
+  CMakeFiles/glite.dir/src/hashmap.c.o \
+  CMakeFiles/glite.dir/src/blob.c.o \
+  CMakeFiles/glite.dir/src/object_store.c.o \
   /usr/lib/gcc/x86_64-pc-linux-gnu/16/libgcc.a \
   /usr/lib/gcc/x86_64-pc-linux-gnu/16/libgcc_s_asneeded.so \
   /usr/lib/gcc/x86_64-pc-linux-gnu/16/libgcc_s_asneeded.so \
@@ -42,6 +46,14 @@ glite: \
 /usr/lib/gcc/x86_64-pc-linux-gnu/16/crtbeginS.o:
 
 CMakeFiles/glite.dir/src/main.c.o:
+
+CMakeFiles/glite.dir/src/dynarray.c.o:
+
+CMakeFiles/glite.dir/src/hashmap.c.o:
+
+CMakeFiles/glite.dir/src/blob.c.o:
+
+CMakeFiles/glite.dir/src/object_store.c.o:
 
 /usr/lib/gcc/x86_64-pc-linux-gnu/16/libgcc.a:
 

@@ -86,18 +86,82 @@ CMakeFiles/glite.dir/src/main.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling C source to assembly CMakeFiles/glite.dir/src/main.c.s"
 	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/votex/Projects/GitLite/src/main.c -o CMakeFiles/glite.dir/src/main.c.s
 
+CMakeFiles/glite.dir/src/dynarray.c.o: CMakeFiles/glite.dir/flags.make
+CMakeFiles/glite.dir/src/dynarray.c.o: /home/votex/Projects/GitLite/src/dynarray.c
+CMakeFiles/glite.dir/src/dynarray.c.o: CMakeFiles/glite.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/votex/Projects/GitLite/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building C object CMakeFiles/glite.dir/src/dynarray.c.o"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/glite.dir/src/dynarray.c.o -MF CMakeFiles/glite.dir/src/dynarray.c.o.d -o CMakeFiles/glite.dir/src/dynarray.c.o -c /home/votex/Projects/GitLite/src/dynarray.c
+
+CMakeFiles/glite.dir/src/dynarray.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing C source to CMakeFiles/glite.dir/src/dynarray.c.i"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/votex/Projects/GitLite/src/dynarray.c > CMakeFiles/glite.dir/src/dynarray.c.i
+
+CMakeFiles/glite.dir/src/dynarray.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling C source to assembly CMakeFiles/glite.dir/src/dynarray.c.s"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/votex/Projects/GitLite/src/dynarray.c -o CMakeFiles/glite.dir/src/dynarray.c.s
+
+CMakeFiles/glite.dir/src/hashmap.c.o: CMakeFiles/glite.dir/flags.make
+CMakeFiles/glite.dir/src/hashmap.c.o: /home/votex/Projects/GitLite/src/hashmap.c
+CMakeFiles/glite.dir/src/hashmap.c.o: CMakeFiles/glite.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/votex/Projects/GitLite/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building C object CMakeFiles/glite.dir/src/hashmap.c.o"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/glite.dir/src/hashmap.c.o -MF CMakeFiles/glite.dir/src/hashmap.c.o.d -o CMakeFiles/glite.dir/src/hashmap.c.o -c /home/votex/Projects/GitLite/src/hashmap.c
+
+CMakeFiles/glite.dir/src/hashmap.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing C source to CMakeFiles/glite.dir/src/hashmap.c.i"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/votex/Projects/GitLite/src/hashmap.c > CMakeFiles/glite.dir/src/hashmap.c.i
+
+CMakeFiles/glite.dir/src/hashmap.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling C source to assembly CMakeFiles/glite.dir/src/hashmap.c.s"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/votex/Projects/GitLite/src/hashmap.c -o CMakeFiles/glite.dir/src/hashmap.c.s
+
+CMakeFiles/glite.dir/src/blob.c.o: CMakeFiles/glite.dir/flags.make
+CMakeFiles/glite.dir/src/blob.c.o: /home/votex/Projects/GitLite/src/blob.c
+CMakeFiles/glite.dir/src/blob.c.o: CMakeFiles/glite.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/votex/Projects/GitLite/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building C object CMakeFiles/glite.dir/src/blob.c.o"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/glite.dir/src/blob.c.o -MF CMakeFiles/glite.dir/src/blob.c.o.d -o CMakeFiles/glite.dir/src/blob.c.o -c /home/votex/Projects/GitLite/src/blob.c
+
+CMakeFiles/glite.dir/src/blob.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing C source to CMakeFiles/glite.dir/src/blob.c.i"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/votex/Projects/GitLite/src/blob.c > CMakeFiles/glite.dir/src/blob.c.i
+
+CMakeFiles/glite.dir/src/blob.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling C source to assembly CMakeFiles/glite.dir/src/blob.c.s"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/votex/Projects/GitLite/src/blob.c -o CMakeFiles/glite.dir/src/blob.c.s
+
+CMakeFiles/glite.dir/src/object_store.c.o: CMakeFiles/glite.dir/flags.make
+CMakeFiles/glite.dir/src/object_store.c.o: /home/votex/Projects/GitLite/src/object_store.c
+CMakeFiles/glite.dir/src/object_store.c.o: CMakeFiles/glite.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/votex/Projects/GitLite/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building C object CMakeFiles/glite.dir/src/object_store.c.o"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/glite.dir/src/object_store.c.o -MF CMakeFiles/glite.dir/src/object_store.c.o.d -o CMakeFiles/glite.dir/src/object_store.c.o -c /home/votex/Projects/GitLite/src/object_store.c
+
+CMakeFiles/glite.dir/src/object_store.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing C source to CMakeFiles/glite.dir/src/object_store.c.i"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/votex/Projects/GitLite/src/object_store.c > CMakeFiles/glite.dir/src/object_store.c.i
+
+CMakeFiles/glite.dir/src/object_store.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling C source to assembly CMakeFiles/glite.dir/src/object_store.c.s"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/votex/Projects/GitLite/src/object_store.c -o CMakeFiles/glite.dir/src/object_store.c.s
+
 # Object files for target glite
 glite_OBJECTS = \
-"CMakeFiles/glite.dir/src/main.c.o"
+"CMakeFiles/glite.dir/src/main.c.o" \
+"CMakeFiles/glite.dir/src/dynarray.c.o" \
+"CMakeFiles/glite.dir/src/hashmap.c.o" \
+"CMakeFiles/glite.dir/src/blob.c.o" \
+"CMakeFiles/glite.dir/src/object_store.c.o"
 
 # External object files for target glite
 glite_EXTERNAL_OBJECTS =
 
 glite: CMakeFiles/glite.dir/src/main.c.o
+glite: CMakeFiles/glite.dir/src/dynarray.c.o
+glite: CMakeFiles/glite.dir/src/hashmap.c.o
+glite: CMakeFiles/glite.dir/src/blob.c.o
+glite: CMakeFiles/glite.dir/src/object_store.c.o
 glite: CMakeFiles/glite.dir/build.make
 glite: CMakeFiles/glite.dir/compiler_depend.ts
 glite: CMakeFiles/glite.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/home/votex/Projects/GitLite/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Linking C executable glite"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/home/votex/Projects/GitLite/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Linking C executable glite"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/glite.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.

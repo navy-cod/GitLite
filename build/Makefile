@@ -129,6 +129,78 @@ glite/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/glite.dir/build.make CMakeFiles/glite.dir/build
 .PHONY : glite/fast
 
+src/blob.o: src/blob.c.o
+.PHONY : src/blob.o
+
+# target to build an object file
+src/blob.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/glite.dir/build.make CMakeFiles/glite.dir/src/blob.c.o
+.PHONY : src/blob.c.o
+
+src/blob.i: src/blob.c.i
+.PHONY : src/blob.i
+
+# target to preprocess a source file
+src/blob.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/glite.dir/build.make CMakeFiles/glite.dir/src/blob.c.i
+.PHONY : src/blob.c.i
+
+src/blob.s: src/blob.c.s
+.PHONY : src/blob.s
+
+# target to generate assembly for a file
+src/blob.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/glite.dir/build.make CMakeFiles/glite.dir/src/blob.c.s
+.PHONY : src/blob.c.s
+
+src/dynarray.o: src/dynarray.c.o
+.PHONY : src/dynarray.o
+
+# target to build an object file
+src/dynarray.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/glite.dir/build.make CMakeFiles/glite.dir/src/dynarray.c.o
+.PHONY : src/dynarray.c.o
+
+src/dynarray.i: src/dynarray.c.i
+.PHONY : src/dynarray.i
+
+# target to preprocess a source file
+src/dynarray.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/glite.dir/build.make CMakeFiles/glite.dir/src/dynarray.c.i
+.PHONY : src/dynarray.c.i
+
+src/dynarray.s: src/dynarray.c.s
+.PHONY : src/dynarray.s
+
+# target to generate assembly for a file
+src/dynarray.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/glite.dir/build.make CMakeFiles/glite.dir/src/dynarray.c.s
+.PHONY : src/dynarray.c.s
+
+src/hashmap.o: src/hashmap.c.o
+.PHONY : src/hashmap.o
+
+# target to build an object file
+src/hashmap.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/glite.dir/build.make CMakeFiles/glite.dir/src/hashmap.c.o
+.PHONY : src/hashmap.c.o
+
+src/hashmap.i: src/hashmap.c.i
+.PHONY : src/hashmap.i
+
+# target to preprocess a source file
+src/hashmap.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/glite.dir/build.make CMakeFiles/glite.dir/src/hashmap.c.i
+.PHONY : src/hashmap.c.i
+
+src/hashmap.s: src/hashmap.c.s
+.PHONY : src/hashmap.s
+
+# target to generate assembly for a file
+src/hashmap.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/glite.dir/build.make CMakeFiles/glite.dir/src/hashmap.c.s
+.PHONY : src/hashmap.c.s
+
 src/main.o: src/main.c.o
 .PHONY : src/main.o
 
@@ -153,6 +225,30 @@ src/main.c.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/glite.dir/build.make CMakeFiles/glite.dir/src/main.c.s
 .PHONY : src/main.c.s
 
+src/object_store.o: src/object_store.c.o
+.PHONY : src/object_store.o
+
+# target to build an object file
+src/object_store.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/glite.dir/build.make CMakeFiles/glite.dir/src/object_store.c.o
+.PHONY : src/object_store.c.o
+
+src/object_store.i: src/object_store.c.i
+.PHONY : src/object_store.i
+
+# target to preprocess a source file
+src/object_store.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/glite.dir/build.make CMakeFiles/glite.dir/src/object_store.c.i
+.PHONY : src/object_store.c.i
+
+src/object_store.s: src/object_store.c.s
+.PHONY : src/object_store.s
+
+# target to generate assembly for a file
+src/object_store.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/glite.dir/build.make CMakeFiles/glite.dir/src/object_store.c.s
+.PHONY : src/object_store.c.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -162,9 +258,21 @@ help:
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
 	@echo "... glite"
+	@echo "... src/blob.o"
+	@echo "... src/blob.i"
+	@echo "... src/blob.s"
+	@echo "... src/dynarray.o"
+	@echo "... src/dynarray.i"
+	@echo "... src/dynarray.s"
+	@echo "... src/hashmap.o"
+	@echo "... src/hashmap.i"
+	@echo "... src/hashmap.s"
 	@echo "... src/main.o"
 	@echo "... src/main.i"
 	@echo "... src/main.s"
+	@echo "... src/object_store.o"
+	@echo "... src/object_store.i"
+	@echo "... src/object_store.s"
 .PHONY : help
 
 
