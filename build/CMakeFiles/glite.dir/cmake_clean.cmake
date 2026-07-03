@@ -10,6 +10,10 @@ file(REMOVE_RECURSE
   "CMakeFiles/glite.dir/src/main.c.o.d"
   "CMakeFiles/glite.dir/src/object_store.c.o"
   "CMakeFiles/glite.dir/src/object_store.c.o.d"
+  "CMakeFiles/glite.dir/src/staging_area.c.o"
+  "CMakeFiles/glite.dir/src/staging_area.c.o.d"
+  "CMakeFiles/glite.dir/src/tree.c.o"
+  "CMakeFiles/glite.dir/src/tree.c.o.d"
   "glite"
   "glite.pdb"
 )

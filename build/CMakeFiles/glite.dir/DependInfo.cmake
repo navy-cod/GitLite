@@ -13,6 +13,8 @@ set(CMAKE_DEPENDS_DEPENDENCY_FILES
   "/home/votex/Projects/GitLite/src/hashmap.c" "CMakeFiles/glite.dir/src/hashmap.c.o" "gcc" "CMakeFiles/glite.dir/src/hashmap.c.o.d"
   "/home/votex/Projects/GitLite/src/main.c" "CMakeFiles/glite.dir/src/main.c.o" "gcc" "CMakeFiles/glite.dir/src/main.c.o.d"
   "/home/votex/Projects/GitLite/src/object_store.c" "CMakeFiles/glite.dir/src/object_store.c.o" "gcc" "CMakeFiles/glite.dir/src/object_store.c.o.d"
+  "/home/votex/Projects/GitLite/src/staging_area.c" "CMakeFiles/glite.dir/src/staging_area.c.o" "gcc" "CMakeFiles/glite.dir/src/staging_area.c.o.d"
+  "/home/votex/Projects/GitLite/src/tree.c" "CMakeFiles/glite.dir/src/tree.c.o" "gcc" "CMakeFiles/glite.dir/src/tree.c.o.d"
   "" "glite" "gcc" "CMakeFiles/glite.dir/link.d"
   )
 

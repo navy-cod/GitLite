@@ -13,4 +13,6 @@ add_executable(glite
     src/hashmap.c
     src/blob.c
     src/object_store.c
+    src/tree.c
+    src/staging_area.c
 )

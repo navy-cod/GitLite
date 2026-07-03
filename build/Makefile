@@ -249,6 +249,54 @@ src/object_store.c.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/glite.dir/build.make CMakeFiles/glite.dir/src/object_store.c.s
 .PHONY : src/object_store.c.s
 
+src/staging_area.o: src/staging_area.c.o
+.PHONY : src/staging_area.o
+
+# target to build an object file
+src/staging_area.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/glite.dir/build.make CMakeFiles/glite.dir/src/staging_area.c.o
+.PHONY : src/staging_area.c.o
+
+src/staging_area.i: src/staging_area.c.i
+.PHONY : src/staging_area.i
+
+# target to preprocess a source file
+src/staging_area.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/glite.dir/build.make CMakeFiles/glite.dir/src/staging_area.c.i
+.PHONY : src/staging_area.c.i
+
+src/staging_area.s: src/staging_area.c.s
+.PHONY : src/staging_area.s
+
+# target to generate assembly for a file
+src/staging_area.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/glite.dir/build.make CMakeFiles/glite.dir/src/staging_area.c.s
+.PHONY : src/staging_area.c.s
+
+src/tree.o: src/tree.c.o
+.PHONY : src/tree.o
+
+# target to build an object file
+src/tree.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/glite.dir/build.make CMakeFiles/glite.dir/src/tree.c.o
+.PHONY : src/tree.c.o
+
+src/tree.i: src/tree.c.i
+.PHONY : src/tree.i
+
+# target to preprocess a source file
+src/tree.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/glite.dir/build.make CMakeFiles/glite.dir/src/tree.c.i
+.PHONY : src/tree.c.i
+
+src/tree.s: src/tree.c.s
+.PHONY : src/tree.s
+
+# target to generate assembly for a file
+src/tree.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/glite.dir/build.make CMakeFiles/glite.dir/src/tree.c.s
+.PHONY : src/tree.c.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -273,6 +321,12 @@ help:
 	@echo "... src/object_store.o"
 	@echo "... src/object_store.i"
 	@echo "... src/object_store.s"
+	@echo "... src/staging_area.o"
+	@echo "... src/staging_area.i"
+	@echo "... src/staging_area.s"
+	@echo "... src/tree.o"
+	@echo "... src/tree.i"
+	@echo "... src/tree.s"
 .PHONY : help
 
 

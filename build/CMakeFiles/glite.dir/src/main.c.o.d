@@ -16,7 +16,9 @@ CMakeFiles/glite.dir/src/main.c.o: \
  /usr/include/bits/stdio_lim.h /usr/include/bits/floatn.h \
  /usr/include/bits/floatn-common.h /usr/include/string.h \
  /usr/include/bits/types/locale_t.h /usr/include/bits/types/__locale_t.h \
- /usr/include/strings.h /home/votex/Projects/GitLite/src/objec_store.h \
+ /usr/include/strings.h /home/votex/Projects/GitLite/src/staging_area.h \
+ /home/votex/Projects/GitLite/src/tree.h \
+ /home/votex/Projects/GitLite/src/objec_store.h \
  /home/votex/Projects/GitLite/src/hashmap.h \
  /home/votex/Projects/GitLite/src/dynarray.h \
  /home/votex/Projects/GitLite/src/blob.h
