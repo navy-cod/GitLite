@@ -80,6 +80,7 @@ void hashmap_free(HashMap* map) {
         Entry* curr = (Entry*)dynarray_get(map->buckets, i);
         while (curr != NULL) {
             Entry* next = curr->next;
+            free(curr->key);
             free(curr);
             curr = next;
         }

@@ -101,8 +101,8 @@ Commit* commit_deserialize(const char* data) {
     if (!c) { fprintf(stderr, "commit_deserialize: malloc failed\n"); exit(1); }
 
     c->hash = hash;
-    c->parent_hash = (strcmp(parent, "null") == 0) ? NULL : parent;
-    if (strcmp(parent, "null") == 0) free(parent);
+    c->parent_hash = (parent && strcmp(parent, "null") == 0) ? NULL : parent;
+    if (parent && strcmp(parent, "null") == 0) free(parent);
     c->tree_hash = tree;
     c->message = message;
     c->timestamp = timestamp;

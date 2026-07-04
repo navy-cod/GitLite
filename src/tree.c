@@ -131,11 +131,12 @@ void tree_compute_hash(TreeNode* node, char* out_hash) {
 
     unsigned int hash = 2166136261u;
     const unsigned char* p = (const unsigned char*)serialized;
-    while (*p) {
+    while (p && *p) {
         hash ^= *p;
         hash *= 16777619u;
         p++;
     }
 
     snprintf(out_hash, 9, "%08x", hash);
+    free(serialized);
 }

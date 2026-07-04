@@ -29,10 +29,12 @@ void repo_commit(Repository* repo, const char* message) {
     char tree_hash[9];
     tree_compute_hash(repo->staging->root, tree_hash);
 
+    if (!object_store_get(repo->store, tree_hash)){
     char* tree_str = tree_serialize(repo->staging->root);
     Blob* tree_blob = blob_create(tree_str, strlen(tree_str));
     free(tree_str);
     object_store_put(repo->store, tree_hash, tree_blob);
+    }
 
     char* parent_hash = (char*)hashmap_get(repo->branches, repo->HEAD);
 
@@ -40,11 +42,13 @@ void repo_commit(Repository* repo, const char* message) {
     get_timestamp(timestamp, sizeof(timestamp));
 
     Commit* c = commit_create(parent_hash, tree_hash, message, timestamp);
-    char* commit_str = commit_serialize(c);
-    Blob* commit_blob = blob_create(commit_str, strlen(commit_str));
-    free(commit_str);
-    object_store_put(repo->store, c->hash, commit_blob);
-
+    if (!object_store_get(repo->store, c->hash)) {
+        char* commit_str = commit_serialize(c);
+        Blob* commit_blob = blob_create(commit_str, strlen(commit_str));
+        free(commit_str);
+        object_store_put(repo->store, c->hash, commit_blob);
+    }
+    
     char* old_hash = (char*)hashmap_get(repo->branches, repo->HEAD);
     free(old_hash);
     hashmap_put(repo->branches, repo->HEAD, strdup(c->hash));
