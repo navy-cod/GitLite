@@ -20,7 +20,7 @@ static unsigned int fnv1a_hash(const char* key) {
     return hash;
 }
 
-HashMap* hash_map_init(size_t bucket_count) {
+HashMap* hashmap_init(size_t bucket_count) {
     HashMap* map = malloc(sizeof(HashMap));
     if (!map) { fprintf(stderr, "hashmap_init: malloc failed"); }
 

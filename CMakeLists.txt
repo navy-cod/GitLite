@@ -7,7 +7,7 @@ set(CMAKE_C_STANDARD_REQUIRED True)
 
 set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -Wall -Wextra -g -pedantic ")
 
-add_executable(glite 
+add_executable(glite
     src/main.c
     src/dynarray.c
     src/hashmap.c
@@ -15,4 +15,18 @@ add_executable(glite
     src/object_store.c
     src/tree.c
     src/staging_area.c
+    src/commit.c
+    src/repo.c
+    
+)
+
+add_executable(test_commits src/test_commits.c
+    src/commit.c
+    src/blob.c
+    src/tree.c
+    src/object_store.c
+    src/hashmap.c
+    src/dynarray.c
+    src/staging_area.c
+    src/repo.c
 )

@@ -64,10 +64,12 @@ CMAKE_BINARY_DIR = /home/votex/Projects/GitLite/build
 
 # The main recursive "all" target.
 all: CMakeFiles/glite.dir/all
+all: CMakeFiles/test_commits.dir/all
 .PHONY : all
 
 # The main recursive "codegen" target.
 codegen: CMakeFiles/glite.dir/codegen
+codegen: CMakeFiles/test_commits.dir/codegen
 .PHONY : codegen
 
 # The main recursive "preinstall" target.
@@ -76,6 +78,7 @@ preinstall:
 
 # The main recursive "clean" target.
 clean: CMakeFiles/glite.dir/clean
+clean: CMakeFiles/test_commits.dir/clean
 .PHONY : clean
 
 #=============================================================================
@@ -85,12 +88,12 @@ clean: CMakeFiles/glite.dir/clean
 CMakeFiles/glite.dir/all:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/glite.dir/build.make CMakeFiles/glite.dir/depend
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/glite.dir/build.make CMakeFiles/glite.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/votex/Projects/GitLite/build/CMakeFiles --progress-num=1,2,3,4,5,6,7,8 "Built target glite"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/votex/Projects/GitLite/build/CMakeFiles --progress-num=1,2,3,4,5,6,7,8,9,10 "Built target glite"
 .PHONY : CMakeFiles/glite.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/glite.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/votex/Projects/GitLite/build/CMakeFiles 8
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/votex/Projects/GitLite/build/CMakeFiles 10
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/glite.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/votex/Projects/GitLite/build/CMakeFiles 0
 .PHONY : CMakeFiles/glite.dir/rule
@@ -102,13 +105,45 @@ glite: CMakeFiles/glite.dir/rule
 # codegen rule for target.
 CMakeFiles/glite.dir/codegen:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/glite.dir/build.make CMakeFiles/glite.dir/codegen
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/votex/Projects/GitLite/build/CMakeFiles --progress-num=1,2,3,4,5,6,7,8 "Finished codegen for target glite"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/votex/Projects/GitLite/build/CMakeFiles --progress-num=1,2,3,4,5,6,7,8,9,10 "Finished codegen for target glite"
 .PHONY : CMakeFiles/glite.dir/codegen
 
 # clean rule for target.
 CMakeFiles/glite.dir/clean:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/glite.dir/build.make CMakeFiles/glite.dir/clean
 .PHONY : CMakeFiles/glite.dir/clean
+
+#=============================================================================
+# Target rules for target CMakeFiles/test_commits.dir
+
+# All Build rule for target.
+CMakeFiles/test_commits.dir/all:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_commits.dir/build.make CMakeFiles/test_commits.dir/depend
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_commits.dir/build.make CMakeFiles/test_commits.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/votex/Projects/GitLite/build/CMakeFiles --progress-num=11,12,13,14,15,16,17,18,19,20 "Built target test_commits"
+.PHONY : CMakeFiles/test_commits.dir/all
+
+# Build rule for subdir invocation for target.
+CMakeFiles/test_commits.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/votex/Projects/GitLite/build/CMakeFiles 10
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/test_commits.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/votex/Projects/GitLite/build/CMakeFiles 0
+.PHONY : CMakeFiles/test_commits.dir/rule
+
+# Convenience name for target.
+test_commits: CMakeFiles/test_commits.dir/rule
+.PHONY : test_commits
+
+# codegen rule for target.
+CMakeFiles/test_commits.dir/codegen:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_commits.dir/build.make CMakeFiles/test_commits.dir/codegen
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/votex/Projects/GitLite/build/CMakeFiles --progress-num=11,12,13,14,15,16,17,18,19,20 "Finished codegen for target test_commits"
+.PHONY : CMakeFiles/test_commits.dir/codegen
+
+# clean rule for target.
+CMakeFiles/test_commits.dir/clean:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_commits.dir/build.make CMakeFiles/test_commits.dir/clean
+.PHONY : CMakeFiles/test_commits.dir/clean
 
 #=============================================================================
 # Special targets to cleanup operation of make.

@@ -16,7 +16,7 @@ typedef struct {
     size_t size;
 } HashMap;
 
-HashMap* hash_map_init(size_t bucket_count);
+HashMap* hashmap_init(size_t bucket_count);
 void hashmap_put(HashMap* map, const char* key, void* value);
 void* hashmap_get(HashMap* map, const char* key);
 void hashmap_free(HashMap* map);

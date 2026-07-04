@@ -20,5 +20,8 @@ void tree_node_print(TreeNode* node, int depth);
 
 void tree_node_free(TreeNode* node);
 
+char* tree_serialize(TreeNode* node);
+
+void tree_compute_hash(TreeNode* node, char* out_hash);
 
 #endif

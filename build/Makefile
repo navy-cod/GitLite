@@ -129,12 +129,26 @@ glite/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/glite.dir/build.make CMakeFiles/glite.dir/build
 .PHONY : glite/fast
 
+#=============================================================================
+# Target rules for targets named test_commits
+
+# Build rule for target.
+test_commits: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 test_commits
+.PHONY : test_commits
+
+# fast build rule for target.
+test_commits/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_commits.dir/build.make CMakeFiles/test_commits.dir/build
+.PHONY : test_commits/fast
+
 src/blob.o: src/blob.c.o
 .PHONY : src/blob.o
 
 # target to build an object file
 src/blob.c.o:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/glite.dir/build.make CMakeFiles/glite.dir/src/blob.c.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_commits.dir/build.make CMakeFiles/test_commits.dir/src/blob.c.o
 .PHONY : src/blob.c.o
 
 src/blob.i: src/blob.c.i
@@ -143,6 +157,7 @@ src/blob.i: src/blob.c.i
 # target to preprocess a source file
 src/blob.c.i:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/glite.dir/build.make CMakeFiles/glite.dir/src/blob.c.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_commits.dir/build.make CMakeFiles/test_commits.dir/src/blob.c.i
 .PHONY : src/blob.c.i
 
 src/blob.s: src/blob.c.s
@@ -151,7 +166,35 @@ src/blob.s: src/blob.c.s
 # target to generate assembly for a file
 src/blob.c.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/glite.dir/build.make CMakeFiles/glite.dir/src/blob.c.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_commits.dir/build.make CMakeFiles/test_commits.dir/src/blob.c.s
 .PHONY : src/blob.c.s
+
+src/commit.o: src/commit.c.o
+.PHONY : src/commit.o
+
+# target to build an object file
+src/commit.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/glite.dir/build.make CMakeFiles/glite.dir/src/commit.c.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_commits.dir/build.make CMakeFiles/test_commits.dir/src/commit.c.o
+.PHONY : src/commit.c.o
+
+src/commit.i: src/commit.c.i
+.PHONY : src/commit.i
+
+# target to preprocess a source file
+src/commit.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/glite.dir/build.make CMakeFiles/glite.dir/src/commit.c.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_commits.dir/build.make CMakeFiles/test_commits.dir/src/commit.c.i
+.PHONY : src/commit.c.i
+
+src/commit.s: src/commit.c.s
+.PHONY : src/commit.s
+
+# target to generate assembly for a file
+src/commit.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/glite.dir/build.make CMakeFiles/glite.dir/src/commit.c.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_commits.dir/build.make CMakeFiles/test_commits.dir/src/commit.c.s
+.PHONY : src/commit.c.s
 
 src/dynarray.o: src/dynarray.c.o
 .PHONY : src/dynarray.o
@@ -159,6 +202,7 @@ src/dynarray.o: src/dynarray.c.o
 # target to build an object file
 src/dynarray.c.o:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/glite.dir/build.make CMakeFiles/glite.dir/src/dynarray.c.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_commits.dir/build.make CMakeFiles/test_commits.dir/src/dynarray.c.o
 .PHONY : src/dynarray.c.o
 
 src/dynarray.i: src/dynarray.c.i
@@ -167,6 +211,7 @@ src/dynarray.i: src/dynarray.c.i
 # target to preprocess a source file
 src/dynarray.c.i:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/glite.dir/build.make CMakeFiles/glite.dir/src/dynarray.c.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_commits.dir/build.make CMakeFiles/test_commits.dir/src/dynarray.c.i
 .PHONY : src/dynarray.c.i
 
 src/dynarray.s: src/dynarray.c.s
@@ -175,6 +220,7 @@ src/dynarray.s: src/dynarray.c.s
 # target to generate assembly for a file
 src/dynarray.c.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/glite.dir/build.make CMakeFiles/glite.dir/src/dynarray.c.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_commits.dir/build.make CMakeFiles/test_commits.dir/src/dynarray.c.s
 .PHONY : src/dynarray.c.s
 
 src/hashmap.o: src/hashmap.c.o
@@ -183,6 +229,7 @@ src/hashmap.o: src/hashmap.c.o
 # target to build an object file
 src/hashmap.c.o:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/glite.dir/build.make CMakeFiles/glite.dir/src/hashmap.c.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_commits.dir/build.make CMakeFiles/test_commits.dir/src/hashmap.c.o
 .PHONY : src/hashmap.c.o
 
 src/hashmap.i: src/hashmap.c.i
@@ -191,6 +238,7 @@ src/hashmap.i: src/hashmap.c.i
 # target to preprocess a source file
 src/hashmap.c.i:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/glite.dir/build.make CMakeFiles/glite.dir/src/hashmap.c.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_commits.dir/build.make CMakeFiles/test_commits.dir/src/hashmap.c.i
 .PHONY : src/hashmap.c.i
 
 src/hashmap.s: src/hashmap.c.s
@@ -199,6 +247,7 @@ src/hashmap.s: src/hashmap.c.s
 # target to generate assembly for a file
 src/hashmap.c.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/glite.dir/build.make CMakeFiles/glite.dir/src/hashmap.c.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_commits.dir/build.make CMakeFiles/test_commits.dir/src/hashmap.c.s
 .PHONY : src/hashmap.c.s
 
 src/main.o: src/main.c.o
@@ -231,6 +280,7 @@ src/object_store.o: src/object_store.c.o
 # target to build an object file
 src/object_store.c.o:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/glite.dir/build.make CMakeFiles/glite.dir/src/object_store.c.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_commits.dir/build.make CMakeFiles/test_commits.dir/src/object_store.c.o
 .PHONY : src/object_store.c.o
 
 src/object_store.i: src/object_store.c.i
@@ -239,6 +289,7 @@ src/object_store.i: src/object_store.c.i
 # target to preprocess a source file
 src/object_store.c.i:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/glite.dir/build.make CMakeFiles/glite.dir/src/object_store.c.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_commits.dir/build.make CMakeFiles/test_commits.dir/src/object_store.c.i
 .PHONY : src/object_store.c.i
 
 src/object_store.s: src/object_store.c.s
@@ -247,7 +298,35 @@ src/object_store.s: src/object_store.c.s
 # target to generate assembly for a file
 src/object_store.c.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/glite.dir/build.make CMakeFiles/glite.dir/src/object_store.c.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_commits.dir/build.make CMakeFiles/test_commits.dir/src/object_store.c.s
 .PHONY : src/object_store.c.s
+
+src/repo.o: src/repo.c.o
+.PHONY : src/repo.o
+
+# target to build an object file
+src/repo.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/glite.dir/build.make CMakeFiles/glite.dir/src/repo.c.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_commits.dir/build.make CMakeFiles/test_commits.dir/src/repo.c.o
+.PHONY : src/repo.c.o
+
+src/repo.i: src/repo.c.i
+.PHONY : src/repo.i
+
+# target to preprocess a source file
+src/repo.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/glite.dir/build.make CMakeFiles/glite.dir/src/repo.c.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_commits.dir/build.make CMakeFiles/test_commits.dir/src/repo.c.i
+.PHONY : src/repo.c.i
+
+src/repo.s: src/repo.c.s
+.PHONY : src/repo.s
+
+# target to generate assembly for a file
+src/repo.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/glite.dir/build.make CMakeFiles/glite.dir/src/repo.c.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_commits.dir/build.make CMakeFiles/test_commits.dir/src/repo.c.s
+.PHONY : src/repo.c.s
 
 src/staging_area.o: src/staging_area.c.o
 .PHONY : src/staging_area.o
@@ -255,6 +334,7 @@ src/staging_area.o: src/staging_area.c.o
 # target to build an object file
 src/staging_area.c.o:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/glite.dir/build.make CMakeFiles/glite.dir/src/staging_area.c.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_commits.dir/build.make CMakeFiles/test_commits.dir/src/staging_area.c.o
 .PHONY : src/staging_area.c.o
 
 src/staging_area.i: src/staging_area.c.i
@@ -263,6 +343,7 @@ src/staging_area.i: src/staging_area.c.i
 # target to preprocess a source file
 src/staging_area.c.i:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/glite.dir/build.make CMakeFiles/glite.dir/src/staging_area.c.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_commits.dir/build.make CMakeFiles/test_commits.dir/src/staging_area.c.i
 .PHONY : src/staging_area.c.i
 
 src/staging_area.s: src/staging_area.c.s
@@ -271,7 +352,32 @@ src/staging_area.s: src/staging_area.c.s
 # target to generate assembly for a file
 src/staging_area.c.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/glite.dir/build.make CMakeFiles/glite.dir/src/staging_area.c.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_commits.dir/build.make CMakeFiles/test_commits.dir/src/staging_area.c.s
 .PHONY : src/staging_area.c.s
+
+src/test_commits.o: src/test_commits.c.o
+.PHONY : src/test_commits.o
+
+# target to build an object file
+src/test_commits.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_commits.dir/build.make CMakeFiles/test_commits.dir/src/test_commits.c.o
+.PHONY : src/test_commits.c.o
+
+src/test_commits.i: src/test_commits.c.i
+.PHONY : src/test_commits.i
+
+# target to preprocess a source file
+src/test_commits.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_commits.dir/build.make CMakeFiles/test_commits.dir/src/test_commits.c.i
+.PHONY : src/test_commits.c.i
+
+src/test_commits.s: src/test_commits.c.s
+.PHONY : src/test_commits.s
+
+# target to generate assembly for a file
+src/test_commits.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_commits.dir/build.make CMakeFiles/test_commits.dir/src/test_commits.c.s
+.PHONY : src/test_commits.c.s
 
 src/tree.o: src/tree.c.o
 .PHONY : src/tree.o
@@ -279,6 +385,7 @@ src/tree.o: src/tree.c.o
 # target to build an object file
 src/tree.c.o:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/glite.dir/build.make CMakeFiles/glite.dir/src/tree.c.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_commits.dir/build.make CMakeFiles/test_commits.dir/src/tree.c.o
 .PHONY : src/tree.c.o
 
 src/tree.i: src/tree.c.i
@@ -287,6 +394,7 @@ src/tree.i: src/tree.c.i
 # target to preprocess a source file
 src/tree.c.i:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/glite.dir/build.make CMakeFiles/glite.dir/src/tree.c.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_commits.dir/build.make CMakeFiles/test_commits.dir/src/tree.c.i
 .PHONY : src/tree.c.i
 
 src/tree.s: src/tree.c.s
@@ -295,6 +403,7 @@ src/tree.s: src/tree.c.s
 # target to generate assembly for a file
 src/tree.c.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/glite.dir/build.make CMakeFiles/glite.dir/src/tree.c.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_commits.dir/build.make CMakeFiles/test_commits.dir/src/tree.c.s
 .PHONY : src/tree.c.s
 
 # Help Target
@@ -306,9 +415,13 @@ help:
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
 	@echo "... glite"
+	@echo "... test_commits"
 	@echo "... src/blob.o"
 	@echo "... src/blob.i"
 	@echo "... src/blob.s"
+	@echo "... src/commit.o"
+	@echo "... src/commit.i"
+	@echo "... src/commit.s"
 	@echo "... src/dynarray.o"
 	@echo "... src/dynarray.i"
 	@echo "... src/dynarray.s"
@@ -321,9 +434,15 @@ help:
 	@echo "... src/object_store.o"
 	@echo "... src/object_store.i"
 	@echo "... src/object_store.s"
+	@echo "... src/repo.o"
+	@echo "... src/repo.i"
+	@echo "... src/repo.s"
 	@echo "... src/staging_area.o"
 	@echo "... src/staging_area.i"
 	@echo "... src/staging_area.s"
+	@echo "... src/test_commits.o"
+	@echo "... src/test_commits.i"
+	@echo "... src/test_commits.s"
 	@echo "... src/tree.o"
 	@echo "... src/tree.i"
 	@echo "... src/tree.s"

@@ -9,6 +9,8 @@ glite: \
   CMakeFiles/glite.dir/src/object_store.c.o \
   CMakeFiles/glite.dir/src/tree.c.o \
   CMakeFiles/glite.dir/src/staging_area.c.o \
+  CMakeFiles/glite.dir/src/commit.c.o \
+  CMakeFiles/glite.dir/src/repo.c.o \
   /usr/lib/gcc/x86_64-pc-linux-gnu/16/libgcc.a \
   /usr/lib/gcc/x86_64-pc-linux-gnu/16/libgcc_s_asneeded.so \
   /usr/lib/gcc/x86_64-pc-linux-gnu/16/libgcc_s_asneeded.so \
@@ -60,6 +62,10 @@ CMakeFiles/glite.dir/src/object_store.c.o:
 CMakeFiles/glite.dir/src/tree.c.o:
 
 CMakeFiles/glite.dir/src/staging_area.c.o:
+
+CMakeFiles/glite.dir/src/commit.c.o:
+
+CMakeFiles/glite.dir/src/repo.c.o:
 
 /usr/lib/gcc/x86_64-pc-linux-gnu/16/libgcc.a:
 

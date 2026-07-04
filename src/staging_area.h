@@ -9,7 +9,7 @@ typedef struct {
     ObjectStore* store;
 } StagingArea;
 
-StagingArea* staging_area_int(void);
+StagingArea* staging_area_init(void);
 
 int staging_area_add(StagingArea* sa, const char* path);
 

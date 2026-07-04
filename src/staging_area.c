@@ -39,7 +39,7 @@ static char* read_file(const char* path, size_t* out_size) {
     return buf;
 }
 
-StagingArea* staging_area_int(void) {
+StagingArea* staging_area_init(void) {
     StagingArea* sa = malloc(sizeof(StagingArea));
     if (!sa) { fprintf(stderr, "staging_area_init: malloc failed\n"); exit(1); }
 

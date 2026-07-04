@@ -78,3 +78,64 @@ void tree_node_free(TreeNode* node) {
     free(node);
 }
 
+static void buf_append(char** buf, size_t* pos, size_t* cap, const char* src, size_t len) {
+    while (*pos + len >= *cap) {
+        *cap = (*cap == 0) ? 64 : *cap * 2;
+        char* new_buf = realloc(*buf, *cap);
+        if (!new_buf) { fprintf(stderr, "buf_append: realloc failed\n"); exit(1); 
+        }
+        *buf = new_buf;
+    }
+    memcpy(*buf + *pos, src, len);
+    *pos += len;
+    (*buf)[*pos] = '\0';  
+}
+
+static void buff_append_str(char** buf, size_t* pos, size_t* cap, const char* str) {
+    buf_append(buf, pos, cap, str, strlen(str));
+}
+
+static void serialize_node(TreeNode* node, char** buf, size_t* pos, size_t* cap) {
+    if (!node) return;
+
+    if (node->is_dir) {
+        buff_append_str(buf, pos, cap, "(dir:"); 
+        buff_append_str(buf, pos, cap, node->name);
+    
+        TreeNode* child = node->children;
+        while (child != NULL) {
+            serialize_node(child, buf, pos, cap);
+            child = child->next;
+        }
+        buff_append_str(buf, pos, cap, ")");
+    } else {
+        buff_append_str(buf, pos, cap, "(file:");
+        buff_append_str(buf, pos, cap, node->name);
+        buff_append_str(buf, pos, cap, ":");
+        buff_append_str(buf, pos, cap, node->blob_hash ? node->blob_hash : "00000000");
+        buff_append_str(buf, pos, cap, ")");
+    }
+}
+
+char* tree_serialize(TreeNode* node) {
+    char* buf = NULL;
+    size_t pos = 0;
+    size_t cap = 0;
+
+    serialize_node(node, &buf, &pos, &cap);
+    return buf;
+}
+
+void tree_compute_hash(TreeNode* node, char* out_hash) {
+    char* serialized = tree_serialize(node);
+
+    unsigned int hash = 2166136261u;
+    const unsigned char* p = (const unsigned char*)serialized;
+    while (*p) {
+        hash ^= *p;
+        hash *= 16777619u;
+        p++;
+    }
+
+    snprintf(out_hash, 9, "%08x", hash);
+}

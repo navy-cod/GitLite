@@ -9,10 +9,12 @@ set(CMAKE_DEPENDS_LANGUAGES
 # The set of dependency files which are needed:
 set(CMAKE_DEPENDS_DEPENDENCY_FILES
   "/home/votex/Projects/GitLite/src/blob.c" "CMakeFiles/glite.dir/src/blob.c.o" "gcc" "CMakeFiles/glite.dir/src/blob.c.o.d"
+  "/home/votex/Projects/GitLite/src/commit.c" "CMakeFiles/glite.dir/src/commit.c.o" "gcc" "CMakeFiles/glite.dir/src/commit.c.o.d"
   "/home/votex/Projects/GitLite/src/dynarray.c" "CMakeFiles/glite.dir/src/dynarray.c.o" "gcc" "CMakeFiles/glite.dir/src/dynarray.c.o.d"
   "/home/votex/Projects/GitLite/src/hashmap.c" "CMakeFiles/glite.dir/src/hashmap.c.o" "gcc" "CMakeFiles/glite.dir/src/hashmap.c.o.d"
   "/home/votex/Projects/GitLite/src/main.c" "CMakeFiles/glite.dir/src/main.c.o" "gcc" "CMakeFiles/glite.dir/src/main.c.o.d"
   "/home/votex/Projects/GitLite/src/object_store.c" "CMakeFiles/glite.dir/src/object_store.c.o" "gcc" "CMakeFiles/glite.dir/src/object_store.c.o.d"
+  "/home/votex/Projects/GitLite/src/repo.c" "CMakeFiles/glite.dir/src/repo.c.o" "gcc" "CMakeFiles/glite.dir/src/repo.c.o.d"
   "/home/votex/Projects/GitLite/src/staging_area.c" "CMakeFiles/glite.dir/src/staging_area.c.o" "gcc" "CMakeFiles/glite.dir/src/staging_area.c.o.d"
   "/home/votex/Projects/GitLite/src/tree.c" "CMakeFiles/glite.dir/src/tree.c.o" "gcc" "CMakeFiles/glite.dir/src/tree.c.o.d"
   "" "glite" "gcc" "CMakeFiles/glite.dir/link.d"

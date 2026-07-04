@@ -6,7 +6,7 @@
 ObjectStore* object_store_init(void) {
     ObjectStore* os = malloc(sizeof(ObjectStore));
     if (!os) { fprintf(stderr, "object_store_init: malloc failed\n"); exit(1); }
-    os->store = hash_map_init(64);
+    os->store = hashmap_init(64);
     return os;
 }
 
