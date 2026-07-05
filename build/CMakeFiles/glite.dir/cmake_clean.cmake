@@ -12,6 +12,8 @@ file(REMOVE_RECURSE
   "CMakeFiles/glite.dir/src/main.c.o.d"
   "CMakeFiles/glite.dir/src/object_store.c.o"
   "CMakeFiles/glite.dir/src/object_store.c.o.d"
+  "CMakeFiles/glite.dir/src/queue.c.o"
+  "CMakeFiles/glite.dir/src/queue.c.o.d"
   "CMakeFiles/glite.dir/src/repo.c.o"
   "CMakeFiles/glite.dir/src/repo.c.o.d"
   "CMakeFiles/glite.dir/src/staging_area.c.o"

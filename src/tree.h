@@ -24,4 +24,6 @@ char* tree_serialize(TreeNode* node);
 
 void tree_compute_hash(TreeNode* node, char* out_hash);
 
+TreeNode* tree_merge_union(TreeNode* a, TreeNode* b);
+
 #endif
