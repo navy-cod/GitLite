@@ -140,3 +140,99 @@ void tree_compute_hash(TreeNode* node, char* out_hash) {
     snprintf(out_hash, 9, "%08x", hash);
     free(serialized);
 }
+
+static TreeNode* merge_dir(TreeNode* a, TreeNode* b);
+
+static TreeNode* copy_subtree(TreeNode* src) {
+    if (!src) return NULL;
+
+    TreeNode* copy;
+    if (src->is_dir) {
+        copy = tree_node_create_dir(src->name);
+        TreeNode* child = src->children;
+
+        TreeNode* reversed = NULL;
+        while (child != NULL) {
+            TreeNode* child_copy = copy_subtree(child);
+            child_copy->next = reversed;
+            reversed = child_copy;
+            child = child->next;
+        }
+        TreeNode* c = reversed;
+        while (c != NULL) {
+            TreeNode* next = c->next;
+            c->next = NULL;
+            tree_node_add_child(copy, c);
+            c = next;
+        }
+    } else {
+        copy = tree_node_create_file(src->name, src->blob_hash);
+    }
+    return copy;
+}
+
+static TreeNode* merge_dir(TreeNode* a, TreeNode* b) {
+    const char* name = a ? a->name : b->name;
+    TreeNode* result = tree_node_create_dir(name);
+
+    TreeNode* ca = a ? a->children : NULL;
+    while (ca != NULL) {
+        TreeNode* cb = b ? tree_node_find_child(b, ca->name) : NULL;
+
+        if (!cb) {
+            tree_node_add_child(result, copy_subtree(ca));
+        } else if (ca->is_dir && cb->is_dir) {
+            if (strcmp(ca->blob_hash, cb->blob_hash) == 0) {
+                tree_node_add_child(result, copy_subtree(ca));
+            } else {
+                tree_node_add_child(result, copy_subtree(ca));
+
+                size_t conflict_len = strlen("CONFLICT:") + strlen(cb->name) + 1;
+                char* conflict_name = malloc(conflict_len);
+                if (!conflict_name) {
+                    fprintf(stderr, "merge_dir: malloc failed");
+                    exit(1);
+                }
+                snprintf(conflict_name, conflict_len, "CONFLICT:%s", cb->name);
+
+                TreeNode* conflict_node = tree_node_create_file(conflict_name, cb->blob_hash);
+                free(conflict_name);
+
+                tree_node_add_child(result, conflict_node);
+            }
+        } else {
+            tree_node_add_child(result, copy_subtree(ca));
+
+            size_t conflict_len = strlen("CONFLICT:") + strlen(cb->name) + 1;
+            char* conflict_name = malloc(conflict_len);
+            if (!conflict_name) {
+                fprintf(stderr, "merge_dir: malloc failed\n");
+                exit(1);
+            }
+            snprintf(conflict_name, conflict_len, "CONFLICT:%s", cb->name);
+
+            TreeNode* conflict_node = copy_subtree(cb);
+            free(conflict_node->name);
+            conflict_node->name = strdup(conflict_name);
+            free(conflict_name);
+
+            tree_node_add_child(result, conflict_node);
+        }
+        
+        ca = ca->next;
+    }
+
+    TreeNode* cb = b ? b->children : NULL;
+    while (cb != NULL) {
+        if (!a || tree_node_find_child(a, cb->name)) {
+            tree_node_add_child(result, copy_subtree(cb));
+        }
+        cb = cb->next;
+    }
+
+    return result;
+}
+
+TreeNode* tree_merge_union(TreeNode* a, TreeNode* b) {
+    return merge_dir(a, b);
+}

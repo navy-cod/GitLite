@@ -130,6 +130,19 @@ glite/fast:
 .PHONY : glite/fast
 
 #=============================================================================
+# Target rules for targets named test_branches
+
+# Build rule for target.
+test_branches: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 test_branches
+.PHONY : test_branches
+
+# fast build rule for target.
+test_branches/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_branches.dir/build.make CMakeFiles/test_branches.dir/build
+.PHONY : test_branches/fast
+
+#=============================================================================
 # Target rules for targets named test_commits
 
 # Build rule for target.
@@ -148,6 +161,7 @@ src/blob.o: src/blob.c.o
 # target to build an object file
 src/blob.c.o:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/glite.dir/build.make CMakeFiles/glite.dir/src/blob.c.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_branches.dir/build.make CMakeFiles/test_branches.dir/src/blob.c.o
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_commits.dir/build.make CMakeFiles/test_commits.dir/src/blob.c.o
 .PHONY : src/blob.c.o
 
@@ -157,6 +171,7 @@ src/blob.i: src/blob.c.i
 # target to preprocess a source file
 src/blob.c.i:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/glite.dir/build.make CMakeFiles/glite.dir/src/blob.c.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_branches.dir/build.make CMakeFiles/test_branches.dir/src/blob.c.i
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_commits.dir/build.make CMakeFiles/test_commits.dir/src/blob.c.i
 .PHONY : src/blob.c.i
 
@@ -166,6 +181,7 @@ src/blob.s: src/blob.c.s
 # target to generate assembly for a file
 src/blob.c.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/glite.dir/build.make CMakeFiles/glite.dir/src/blob.c.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_branches.dir/build.make CMakeFiles/test_branches.dir/src/blob.c.s
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_commits.dir/build.make CMakeFiles/test_commits.dir/src/blob.c.s
 .PHONY : src/blob.c.s
 
@@ -175,6 +191,7 @@ src/commit.o: src/commit.c.o
 # target to build an object file
 src/commit.c.o:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/glite.dir/build.make CMakeFiles/glite.dir/src/commit.c.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_branches.dir/build.make CMakeFiles/test_branches.dir/src/commit.c.o
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_commits.dir/build.make CMakeFiles/test_commits.dir/src/commit.c.o
 .PHONY : src/commit.c.o
 
@@ -184,6 +201,7 @@ src/commit.i: src/commit.c.i
 # target to preprocess a source file
 src/commit.c.i:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/glite.dir/build.make CMakeFiles/glite.dir/src/commit.c.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_branches.dir/build.make CMakeFiles/test_branches.dir/src/commit.c.i
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_commits.dir/build.make CMakeFiles/test_commits.dir/src/commit.c.i
 .PHONY : src/commit.c.i
 
@@ -193,6 +211,7 @@ src/commit.s: src/commit.c.s
 # target to generate assembly for a file
 src/commit.c.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/glite.dir/build.make CMakeFiles/glite.dir/src/commit.c.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_branches.dir/build.make CMakeFiles/test_branches.dir/src/commit.c.s
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_commits.dir/build.make CMakeFiles/test_commits.dir/src/commit.c.s
 .PHONY : src/commit.c.s
 
@@ -202,6 +221,7 @@ src/dynarray.o: src/dynarray.c.o
 # target to build an object file
 src/dynarray.c.o:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/glite.dir/build.make CMakeFiles/glite.dir/src/dynarray.c.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_branches.dir/build.make CMakeFiles/test_branches.dir/src/dynarray.c.o
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_commits.dir/build.make CMakeFiles/test_commits.dir/src/dynarray.c.o
 .PHONY : src/dynarray.c.o
 
@@ -211,6 +231,7 @@ src/dynarray.i: src/dynarray.c.i
 # target to preprocess a source file
 src/dynarray.c.i:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/glite.dir/build.make CMakeFiles/glite.dir/src/dynarray.c.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_branches.dir/build.make CMakeFiles/test_branches.dir/src/dynarray.c.i
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_commits.dir/build.make CMakeFiles/test_commits.dir/src/dynarray.c.i
 .PHONY : src/dynarray.c.i
 
@@ -220,6 +241,7 @@ src/dynarray.s: src/dynarray.c.s
 # target to generate assembly for a file
 src/dynarray.c.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/glite.dir/build.make CMakeFiles/glite.dir/src/dynarray.c.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_branches.dir/build.make CMakeFiles/test_branches.dir/src/dynarray.c.s
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_commits.dir/build.make CMakeFiles/test_commits.dir/src/dynarray.c.s
 .PHONY : src/dynarray.c.s
 
@@ -229,6 +251,7 @@ src/hashmap.o: src/hashmap.c.o
 # target to build an object file
 src/hashmap.c.o:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/glite.dir/build.make CMakeFiles/glite.dir/src/hashmap.c.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_branches.dir/build.make CMakeFiles/test_branches.dir/src/hashmap.c.o
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_commits.dir/build.make CMakeFiles/test_commits.dir/src/hashmap.c.o
 .PHONY : src/hashmap.c.o
 
@@ -238,6 +261,7 @@ src/hashmap.i: src/hashmap.c.i
 # target to preprocess a source file
 src/hashmap.c.i:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/glite.dir/build.make CMakeFiles/glite.dir/src/hashmap.c.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_branches.dir/build.make CMakeFiles/test_branches.dir/src/hashmap.c.i
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_commits.dir/build.make CMakeFiles/test_commits.dir/src/hashmap.c.i
 .PHONY : src/hashmap.c.i
 
@@ -247,6 +271,7 @@ src/hashmap.s: src/hashmap.c.s
 # target to generate assembly for a file
 src/hashmap.c.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/glite.dir/build.make CMakeFiles/glite.dir/src/hashmap.c.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_branches.dir/build.make CMakeFiles/test_branches.dir/src/hashmap.c.s
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_commits.dir/build.make CMakeFiles/test_commits.dir/src/hashmap.c.s
 .PHONY : src/hashmap.c.s
 
@@ -280,6 +305,7 @@ src/object_store.o: src/object_store.c.o
 # target to build an object file
 src/object_store.c.o:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/glite.dir/build.make CMakeFiles/glite.dir/src/object_store.c.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_branches.dir/build.make CMakeFiles/test_branches.dir/src/object_store.c.o
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_commits.dir/build.make CMakeFiles/test_commits.dir/src/object_store.c.o
 .PHONY : src/object_store.c.o
 
@@ -289,6 +315,7 @@ src/object_store.i: src/object_store.c.i
 # target to preprocess a source file
 src/object_store.c.i:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/glite.dir/build.make CMakeFiles/glite.dir/src/object_store.c.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_branches.dir/build.make CMakeFiles/test_branches.dir/src/object_store.c.i
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_commits.dir/build.make CMakeFiles/test_commits.dir/src/object_store.c.i
 .PHONY : src/object_store.c.i
 
@@ -298,8 +325,39 @@ src/object_store.s: src/object_store.c.s
 # target to generate assembly for a file
 src/object_store.c.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/glite.dir/build.make CMakeFiles/glite.dir/src/object_store.c.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_branches.dir/build.make CMakeFiles/test_branches.dir/src/object_store.c.s
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_commits.dir/build.make CMakeFiles/test_commits.dir/src/object_store.c.s
 .PHONY : src/object_store.c.s
+
+src/queue.o: src/queue.c.o
+.PHONY : src/queue.o
+
+# target to build an object file
+src/queue.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/glite.dir/build.make CMakeFiles/glite.dir/src/queue.c.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_branches.dir/build.make CMakeFiles/test_branches.dir/src/queue.c.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_commits.dir/build.make CMakeFiles/test_commits.dir/src/queue.c.o
+.PHONY : src/queue.c.o
+
+src/queue.i: src/queue.c.i
+.PHONY : src/queue.i
+
+# target to preprocess a source file
+src/queue.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/glite.dir/build.make CMakeFiles/glite.dir/src/queue.c.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_branches.dir/build.make CMakeFiles/test_branches.dir/src/queue.c.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_commits.dir/build.make CMakeFiles/test_commits.dir/src/queue.c.i
+.PHONY : src/queue.c.i
+
+src/queue.s: src/queue.c.s
+.PHONY : src/queue.s
+
+# target to generate assembly for a file
+src/queue.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/glite.dir/build.make CMakeFiles/glite.dir/src/queue.c.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_branches.dir/build.make CMakeFiles/test_branches.dir/src/queue.c.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_commits.dir/build.make CMakeFiles/test_commits.dir/src/queue.c.s
+.PHONY : src/queue.c.s
 
 src/repo.o: src/repo.c.o
 .PHONY : src/repo.o
@@ -307,6 +365,7 @@ src/repo.o: src/repo.c.o
 # target to build an object file
 src/repo.c.o:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/glite.dir/build.make CMakeFiles/glite.dir/src/repo.c.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_branches.dir/build.make CMakeFiles/test_branches.dir/src/repo.c.o
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_commits.dir/build.make CMakeFiles/test_commits.dir/src/repo.c.o
 .PHONY : src/repo.c.o
 
@@ -316,6 +375,7 @@ src/repo.i: src/repo.c.i
 # target to preprocess a source file
 src/repo.c.i:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/glite.dir/build.make CMakeFiles/glite.dir/src/repo.c.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_branches.dir/build.make CMakeFiles/test_branches.dir/src/repo.c.i
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_commits.dir/build.make CMakeFiles/test_commits.dir/src/repo.c.i
 .PHONY : src/repo.c.i
 
@@ -325,6 +385,7 @@ src/repo.s: src/repo.c.s
 # target to generate assembly for a file
 src/repo.c.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/glite.dir/build.make CMakeFiles/glite.dir/src/repo.c.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_branches.dir/build.make CMakeFiles/test_branches.dir/src/repo.c.s
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_commits.dir/build.make CMakeFiles/test_commits.dir/src/repo.c.s
 .PHONY : src/repo.c.s
 
@@ -334,6 +395,7 @@ src/staging_area.o: src/staging_area.c.o
 # target to build an object file
 src/staging_area.c.o:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/glite.dir/build.make CMakeFiles/glite.dir/src/staging_area.c.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_branches.dir/build.make CMakeFiles/test_branches.dir/src/staging_area.c.o
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_commits.dir/build.make CMakeFiles/test_commits.dir/src/staging_area.c.o
 .PHONY : src/staging_area.c.o
 
@@ -343,6 +405,7 @@ src/staging_area.i: src/staging_area.c.i
 # target to preprocess a source file
 src/staging_area.c.i:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/glite.dir/build.make CMakeFiles/glite.dir/src/staging_area.c.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_branches.dir/build.make CMakeFiles/test_branches.dir/src/staging_area.c.i
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_commits.dir/build.make CMakeFiles/test_commits.dir/src/staging_area.c.i
 .PHONY : src/staging_area.c.i
 
@@ -352,8 +415,33 @@ src/staging_area.s: src/staging_area.c.s
 # target to generate assembly for a file
 src/staging_area.c.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/glite.dir/build.make CMakeFiles/glite.dir/src/staging_area.c.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_branches.dir/build.make CMakeFiles/test_branches.dir/src/staging_area.c.s
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_commits.dir/build.make CMakeFiles/test_commits.dir/src/staging_area.c.s
 .PHONY : src/staging_area.c.s
+
+src/test_branches.o: src/test_branches.c.o
+.PHONY : src/test_branches.o
+
+# target to build an object file
+src/test_branches.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_branches.dir/build.make CMakeFiles/test_branches.dir/src/test_branches.c.o
+.PHONY : src/test_branches.c.o
+
+src/test_branches.i: src/test_branches.c.i
+.PHONY : src/test_branches.i
+
+# target to preprocess a source file
+src/test_branches.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_branches.dir/build.make CMakeFiles/test_branches.dir/src/test_branches.c.i
+.PHONY : src/test_branches.c.i
+
+src/test_branches.s: src/test_branches.c.s
+.PHONY : src/test_branches.s
+
+# target to generate assembly for a file
+src/test_branches.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_branches.dir/build.make CMakeFiles/test_branches.dir/src/test_branches.c.s
+.PHONY : src/test_branches.c.s
 
 src/test_commits.o: src/test_commits.c.o
 .PHONY : src/test_commits.o
@@ -385,6 +473,7 @@ src/tree.o: src/tree.c.o
 # target to build an object file
 src/tree.c.o:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/glite.dir/build.make CMakeFiles/glite.dir/src/tree.c.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_branches.dir/build.make CMakeFiles/test_branches.dir/src/tree.c.o
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_commits.dir/build.make CMakeFiles/test_commits.dir/src/tree.c.o
 .PHONY : src/tree.c.o
 
@@ -394,6 +483,7 @@ src/tree.i: src/tree.c.i
 # target to preprocess a source file
 src/tree.c.i:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/glite.dir/build.make CMakeFiles/glite.dir/src/tree.c.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_branches.dir/build.make CMakeFiles/test_branches.dir/src/tree.c.i
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_commits.dir/build.make CMakeFiles/test_commits.dir/src/tree.c.i
 .PHONY : src/tree.c.i
 
@@ -403,6 +493,7 @@ src/tree.s: src/tree.c.s
 # target to generate assembly for a file
 src/tree.c.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/glite.dir/build.make CMakeFiles/glite.dir/src/tree.c.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_branches.dir/build.make CMakeFiles/test_branches.dir/src/tree.c.s
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_commits.dir/build.make CMakeFiles/test_commits.dir/src/tree.c.s
 .PHONY : src/tree.c.s
 
@@ -415,6 +506,7 @@ help:
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
 	@echo "... glite"
+	@echo "... test_branches"
 	@echo "... test_commits"
 	@echo "... src/blob.o"
 	@echo "... src/blob.i"
@@ -434,12 +526,18 @@ help:
 	@echo "... src/object_store.o"
 	@echo "... src/object_store.i"
 	@echo "... src/object_store.s"
+	@echo "... src/queue.o"
+	@echo "... src/queue.i"
+	@echo "... src/queue.s"
 	@echo "... src/repo.o"
 	@echo "... src/repo.i"
 	@echo "... src/repo.s"
 	@echo "... src/staging_area.o"
 	@echo "... src/staging_area.i"
 	@echo "... src/staging_area.s"
+	@echo "... src/test_branches.o"
+	@echo "... src/test_branches.i"
+	@echo "... src/test_branches.s"
 	@echo "... src/test_commits.o"
 	@echo "... src/test_commits.i"
 	@echo "... src/test_commits.s"

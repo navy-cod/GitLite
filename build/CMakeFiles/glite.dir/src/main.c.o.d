@@ -23,4 +23,5 @@ CMakeFiles/glite.dir/src/main.c.o: \
  /home/votex/Projects/GitLite/src/blob.h \
  /home/votex/Projects/GitLite/src/staging_area.h \
  /home/votex/Projects/GitLite/src/tree.h \
- /home/votex/Projects/GitLite/src/commit.h
+ /home/votex/Projects/GitLite/src/commit.h \
+ /home/votex/Projects/GitLite/src/queue.h

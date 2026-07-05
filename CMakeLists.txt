@@ -17,16 +17,34 @@ add_executable(glite
     src/staging_area.c
     src/commit.c
     src/repo.c
+    src/queue.c
     
 )
 
-add_executable(test_commits src/test_commits.c
-    src/commit.c
-    src/blob.c
-    src/tree.c
-    src/object_store.c
-    src/hashmap.c
+add_executable(test_branches
+    src/test_branches.c
     src/dynarray.c
+    src/hashmap.c
+    src/blob.c
+    src/object_store.c
+    src/tree.c
     src/staging_area.c
+    src/commit.c
     src/repo.c
+    src/queue.c
+    
+)
+
+add_executable(test_commits
+    src/test_commits.c
+    src/dynarray.c
+    src/hashmap.c
+    src/blob.c
+    src/object_store.c
+    src/tree.c
+    src/staging_area.c
+    src/commit.c
+    src/repo.c
+    src/queue.c
+    
 )
