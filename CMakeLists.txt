@@ -18,6 +18,8 @@ add_executable(glite
     src/commit.c
     src/repo.c
     src/queue.c
+    src/diff.c
+    src/working_dir.c
     
 )
 
@@ -48,3 +50,5 @@ add_executable(test_commits
     src/queue.c
     
 )
+
+add_executable(test_diff src/test_diff.c src/diff.c)
