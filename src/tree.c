@@ -236,3 +236,72 @@ static TreeNode* merge_dir(TreeNode* a, TreeNode* b) {
 TreeNode* tree_merge_union(TreeNode* a, TreeNode* b) {
     return merge_dir(a, b);
 }
+
+static char* parse_token(const char** input, char stop_a, char stop_b) {
+    const char* start = *input;
+    while (**input && **input != stop_a && **input != stop_b) {
+        (*input)++;
+    }
+    size_t len = (size_t)(*input - start);
+    char* tok = malloc(len + 1);
+    if (!tok) { fprintf(stderr, "parse_token: malloc failed\n"); exit(1); }
+    memcpy(tok, start, len);
+    tok[len] = '\0';
+    return tok;
+}
+
+TreeNode* tree_deserialize(const char** input) {
+    if (!input || !*input || **input != '(') return NULL;
+    (*input)++;
+
+    char* type = parse_token(input, ':', ')');
+
+    if (**input != ':') {
+        free(type);
+        return NULL;
+    }
+    (*input)++;
+
+    char* name = parse_token(input, ':', ')');
+
+    TreeNode* node = NULL;
+
+    if (strcmp(type, "dir") == 0) {
+        node = tree_node_create_dir(name);
+
+        TreeNode* children_head = NULL;
+        while (*input && **input == '(') {
+            TreeNode* child = tree_deserialize(input);
+            if (!child) break;
+            child->next = children_head;
+            children_head = child;
+        }
+
+        TreeNode* reversed = NULL;
+        while (children_head) {
+            TreeNode* next = children_head->next;
+            children_head->next = reversed;
+            reversed = children_head;
+            children_head = next;
+        }
+
+        while (reversed) {
+            TreeNode* next = reversed->next;
+            reversed->next = NULL;
+            tree_node_add_child(node, reversed);
+            reversed = next;
+        }
+
+    } else if (strcmp(type, "file") == 0) {
+        if (**input == ':') (*input)++;
+        char* hash = parse_token(input, ')', ':');
+        node = tree_node_create_file(name, hash);
+        free(hash);
+    }
+
+    if (*input && **input == ')') (*input)++;
+
+    free(type);
+    free(name);
+    return node;
+}
