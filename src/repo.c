@@ -8,7 +8,6 @@
 #include <sys/stat.h>
 #include <errno.h>
 #include <time.h>
-#include <dirent.h>
 
 static int dir_exists(const char* path) {
     struct stat st;
@@ -66,8 +65,8 @@ static void hash_content(const char* data, size_t len, char* out) {
 }
 
 static void get_timestamp(char* buf, size_t size) {
-    time_t    now = time(NULL);
-    struct tm* tm = localtime(&now);
+    time_t     now = time(NULL);
+    struct tm* tm  = localtime(&now);
     strftime(buf, size, "%Y-%m-%d %H:%M:%S", tm);
 }
 
@@ -124,6 +123,25 @@ static int branch_exists(const char* branch_name) {
     return file_exists(path);
 }
 
+static TreeNode* find_path_in_tree(TreeNode* root, const char* path) {
+    char* path_copy = strdup(path);
+    char* saveptr;
+    TreeNode* current = root;
+    TreeNode* result   = NULL;
+
+    char* tok = strtok_r(path_copy, "/", &saveptr);
+    while (tok != NULL) {
+        TreeNode* next = tree_node_find_child(current, tok);
+        if (!next) { result = NULL; break; }
+        result  = next;
+        current = next;
+        tok = strtok_r(NULL, "/", &saveptr);
+    }
+
+    free(path_copy);
+    return result;
+}
+
 Repository* repo_init(void) {
     Repository* repo = malloc(sizeof(Repository));
     if (!repo) { fprintf(stderr, "repo_init: malloc failed\n"); exit(1); }
@@ -141,8 +159,7 @@ Repository* repo_init(void) {
     repo->store   = fs_store_init(GLITE_DIR);
     repo->staging = staging_area_init();
     repo->index   = btree_init();
-
-    repo->HEAD = read_head_branch();
+    repo->HEAD    = read_head_branch();
 
     return repo;
 }
@@ -156,8 +173,10 @@ void repo_add(Repository* repo, const char* path) {
 
     char hash[9];
     hash_content(content, file_size, hash);
-    free(content);
 
+    fs_store_put(repo->store, hash, content, file_size);
+
+    free(content);
     btree_insert(repo->index, path, hash);
 }
 
@@ -177,8 +196,9 @@ void repo_commit(Repository* repo, const char* message) {
     get_timestamp(timestamp, sizeof(timestamp));
 
     Commit* c = commit_create(parent_hash, tree_hash, message, timestamp);
-    free(parent_hash);  
+    free(parent_hash);
 
+    char* commit_str  = commit_serialize(c);
     size_t commit_len = strlen(commit_str);
     fs_store_put(repo->store, c->hash, commit_str, commit_len);
     free(commit_str);
@@ -217,11 +237,7 @@ void repo_log(Repository* repo) {
 
         Commit* c = commit_deserialize(data);
         free(data);
-
-        if (!c) {
-            free(current);
-            break;
-        }
+        if (!c) { free(current); break; }
 
         printf("commit %s\n", c->hash);
         printf("Date:   %s\n", c->timestamp);
@@ -248,7 +264,6 @@ void repo_status(Repository* repo) {
     size_t size;
     char* commit_data = fs_store_get(repo->store, tip_hash, &size);
     free(tip_hash);
-
     if (!commit_data) {
         fprintf(stderr, "repo_status: cannot load tip commit\n");
         return;
@@ -280,6 +295,53 @@ void repo_status(Repository* repo) {
     if (committed) tree_node_free(committed);
 }
 
+void repo_diff(Repository* repo, const char* path) {
+    char* tip_hash = read_branch_hash(repo->HEAD);
+    if (!tip_hash) {
+        printf("No commits yet — nothing to diff against.\n");
+        return;
+    }
+
+    size_t commit_size;
+    char* commit_data = fs_store_get(repo->store, tip_hash, &commit_size);
+    free(tip_hash);
+    if (!commit_data) {
+        fprintf(stderr, "repo_diff: cannot load tip commit\n");
+        return;
+    }
+
+    Commit* c = commit_deserialize(commit_data);
+    free(commit_data);
+    if (!c) return;
+
+    size_t tree_size;
+    char* tree_data = fs_store_get(repo->store, c->tree_hash, &tree_size);
+    commit_free(c);
+    if (!tree_data) {
+        fprintf(stderr, "repo_diff: cannot load tree\n");
+        return;
+    }
+
+    const char* ptr = tree_data;
+    TreeNode* committed_root = tree_deserialize(&ptr);
+    free(tree_data);
+
+    char* committed_content = NULL;
+
+    if (committed_root) {
+        TreeNode* file_node = find_path_in_tree(committed_root, path);
+        if (file_node && !file_node->is_dir) {
+            size_t blob_size;
+            committed_content = fs_store_get(repo->store, file_node->blob_hash, &blob_size);
+        }
+    }
+
+    working_dir_diff_file(path, committed_content ? committed_content : "", path);
+
+    free(committed_content);
+    if (committed_root) tree_node_free(committed_root);
+}
+
 void repo_create_branch(Repository* repo, const char* name) {
     if (branch_exists(name)) {
         fprintf(stderr, "glite: branch '%s' already exists\n", name);
@@ -305,7 +367,6 @@ void repo_switch_branch(Repository* repo, const char* name) {
 
     printf("Switched to branch '%s'.\n", name);
 }
-
 typedef struct {
     char* hash;
     int   colour;
@@ -321,10 +382,8 @@ char* repo_find_lca(Repository* repo, const char* hash1, const char* hash2) {
     BFSEntry* e2 = malloc(sizeof(BFSEntry));
     if (!e1 || !e2) { fprintf(stderr, "repo_find_lca: malloc failed\n"); exit(1); }
 
-    e1->hash   = strdup(hash1);
-    e1->colour = 0;
-    e2->hash   = strdup(hash2);
-    e2->colour = 1;
+    e1->hash = strdup(hash1); e1->colour = 0;
+    e2->hash = strdup(hash2); e2->colour = 1;
 
     queue_enqueue(queue, e1);
     queue_enqueue(queue, e2);
@@ -339,9 +398,7 @@ char* repo_find_lca(Repository* repo, const char* hash1, const char* hash2) {
 
         char* seen = (char*)hashmap_get(visited, hash);
         if (seen) {
-            if (seen[0] != (char)('0' + colour)) {
-                lca = strdup(hash);
-            }
+            if (seen[0] != (char)('0' + colour)) lca = strdup(hash);
             free(hash);
             continue;
         }
@@ -425,8 +482,7 @@ void repo_merge(Repository* repo, const char* source_branch) {
         }
     }
 
-    TreeNode* merged = tree_merge_union(repo->staging->root,
-                                        tree_b ? tree_b : repo->staging->root);
+    TreeNode* merged = tree_merge_union(repo->staging->root, tree_b ? tree_b : repo->staging->root);
     if (tree_b) tree_node_free(tree_b);
 
     tree_node_free(repo->staging->root);
@@ -439,6 +495,17 @@ void repo_merge(Repository* repo, const char* source_branch) {
 
     free(current_hash);
     free(source_hash);
+}
+
+
+char* repo_read_branch_ref(Repository* repo, const char* branch_name) {
+    (void)repo;   
+    return read_branch_hash(branch_name);
+}
+
+void repo_update_branch_ref(Repository* repo, const char* branch_name, const char* hash) {
+    (void)repo;
+    write_branch_hash(branch_name, hash);
 }
 
 void repo_free(Repository* repo) {
