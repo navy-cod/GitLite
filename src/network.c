@@ -69,6 +69,8 @@ static char* recv_line(int sockfd) {
 static int client_connect(const char* host, const char* port_str) {
     struct addrinfo hints;
     struct addrinfo* res = NULL;
+    struct addrinfo* rp = NULL;
+    int sockfd = -1;
 
     memset(&hints, 0, sizeof(hints));
     hints.ai_family   = AF_INET;
@@ -80,21 +82,25 @@ static int client_connect(const char* host, const char* port_str) {
         return -1;
     }
 
-    int sockfd = socket(res->ai_family, res->ai_socktype, res->ai_protocol);
-    if (sockfd < 0) {
-        perror("network: socket");
-        freeaddrinfo(res);
-        return -1;
-    }
+    for (rp = res; rp != NULL; rp = rp->ai_next) {
+        sockfd = socket(rp->ai_family, rp->ai_socktype, rp->ai_protocol);
+        if (sockfd < 0) {
+            continue;
+        }
 
-    if (connect(sockfd, res->ai_addr, res->ai_addrlen) < 0) {
-        perror("network: connect");
+        if (connect(sockfd, rp->ai_addr, rp->ai_addrlen) == 0) {
+            break; // Success
+        }
+
         close(sockfd);
-        freeaddrinfo(res);
-        return -1;
+        sockfd = -1;
     }
 
     freeaddrinfo(res);
+
+    if (sockfd < 0) {
+        perror("network: connect failed");
+    }
     return sockfd;
 }
 
